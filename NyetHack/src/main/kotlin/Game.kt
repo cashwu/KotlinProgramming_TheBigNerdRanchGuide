@@ -14,7 +14,6 @@ fun main() {
     // aura
     val auraVisible = isBlessed && healthPoints > 50 || isImmortal
     val auraColor = if (auraVisible) "GREEN" else "NONE"
-    println(auraColor)
 
     val healthStatus = when (healthPoints) {
         100 -> "is in excellent condition!"
@@ -24,9 +23,14 @@ fun main() {
         } else {
             "has some minor wounds."
         }
+
         in 15..74 -> "has a few scratches."
         else -> "is in awful condition!"
     }
 
-    println(name + " " + healthStatus)
+    println(
+        "(Aura: $auraColor) " +
+                "(Blessed: ${if (isBlessed) "YES" else "NO"})"
+    )
+    println("$name $healthStatus")
 }
