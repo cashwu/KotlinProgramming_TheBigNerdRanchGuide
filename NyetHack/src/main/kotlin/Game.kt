@@ -18,7 +18,8 @@ fun main() {
 
     printPlayerStatus(auraColor, isBlessed, name, healthStatus)
 
-    castFireball(5)
+//    castFireball(5)
+    castFireball()
 }
 
 private fun printPlayerStatus(
@@ -40,7 +41,7 @@ private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean
     return auraColor
 }
 
-private fun castFireball(numFireballs: Int) {
+private fun castFireball(numFireballs: Int = 2) {
     println("A glass of Fireball springs into existence. (x$numFireballs)")
 }
 
