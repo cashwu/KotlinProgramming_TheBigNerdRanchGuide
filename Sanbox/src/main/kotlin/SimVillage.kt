@@ -43,7 +43,7 @@ fun main() {
     }
 }
 
-fun runSimulation(playerName: String, greetingFunction: (String, Int) -> String) {
+inline fun runSimulation(playerName: String, greetingFunction: (String, Int) -> String) {
 
     val numBuildings = (1..3).shuffled().last()
 
