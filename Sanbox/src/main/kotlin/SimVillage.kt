@@ -26,14 +26,21 @@ fun main() {
 //        "Welcome to SimVillage, $playerName! (copyright $currentYear)"
 //    }
 
-    val greetingFunction = { playerName: String, numBuildings: Int ->
+//    val greetingFunction = { playerName: String, numBuildings: Int ->
+//        val currentYear = 2018
+//        println("Adding $numBuildings houses")
+//        "Welcome to SimVillage, $playerName! (copyright $currentYear)"
+//    }
+////    println(greetingFunction("Guyal", 2))
+//
+//    runSimulation("Guyal", greetingFunction)
+
+
+    runSimulation("Guyal") { playerName: String, numBuildings: Int ->
         val currentYear = 2018
         println("Adding $numBuildings houses")
         "Welcome to SimVillage, $playerName! (copyright $currentYear)"
     }
-//    println(greetingFunction("Guyal", 2))
-
-    runSimulation("Guyal", greetingFunction)
 }
 
 fun runSimulation(playerName: String, greetingFunction: (String, Int) -> String) {
