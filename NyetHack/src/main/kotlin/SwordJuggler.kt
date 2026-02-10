@@ -8,9 +8,13 @@ fun main() {
         swordsJuggling = 2
     }
 
-    proficiencyCheck(swordsJuggling)
+    try {
+        proficiencyCheck(swordsJuggling)
+        swordsJuggling = swordsJuggling!!.plus(1)
+    } catch (e: Exception) {
+        println(e)
+    }
 
-    swordsJuggling = swordsJuggling!!.plus(1)
     println("You juggle $swordsJuggling swords!")
 }
 
