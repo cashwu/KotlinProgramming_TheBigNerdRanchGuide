@@ -21,5 +21,7 @@ fun main() {
 
 //    beverage = null
 
-    println(beverage)
+    val beverageServed: String = beverage ?: "Buttered Ale"
+    println(beverageServed)
+//    println(beverage)
 }
