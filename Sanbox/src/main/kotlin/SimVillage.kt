@@ -1,10 +1,15 @@
-
-
 fun main() {
 
-    println({
+//    println({
+//        val currentYear = 2018
+//        "Welcome to SimVillage, Mayor! (copyright $currentYear)"
+//    }())
+
+    val greetingFunction: () -> String = {
         val currentYear = 2018
         "Welcome to SimVillage, Mayor! (copyright $currentYear)"
-    }())
+    }
+
+    println(greetingFunction())
 
 }
