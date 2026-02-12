@@ -31,7 +31,8 @@ fun placeOrder(menuData: String) {
     val message = "Madrigal buys a $name ($type) for $price"
     println(message)
 
-    performPurchase(price)
+    val gold = "5.91".toDoubleOrNull() ?: 0
+    performPurchase(price.toDouble())
 
 //    val phrase = "Ah, delicious $name!"
 //    val msg = phrase.replace(Regex("[aeiou]"), { t ->
