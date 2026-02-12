@@ -20,6 +20,18 @@ fun placeOrder(menuData: String) {
     println(message)
 
     val phrase = "Ah, delicious $name!"
+    val msg = phrase.replace(Regex("[aeiou]"), { t ->
+        when (t.value) {
+            "a" -> "4"
+            "e" -> "3"
+            "i" -> "1"
+            "o" -> "0"
+            "u" -> "|_|"
+            else -> t.value
+        }
+    })
+
+    println(msg)
     println("Madrigal exclaims: ${toDragonSpeak(phrase)}")
 }
 
