@@ -14,6 +14,8 @@ fun main() {
 //        print("$it \n")
 //    }
 
+    println(Integer.toBinaryString(42))
+
 //    placeOrder("shandy,Dragon's Breath,5.91")
     placeOrder("shandy,Dragon's Breath,5.91")
     placeOrder("elixir,Shirley's Temple,4.12")
