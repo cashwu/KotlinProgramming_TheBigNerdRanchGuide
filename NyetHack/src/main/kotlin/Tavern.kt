@@ -5,6 +5,10 @@ fun main() {
     val omSymbol = '\u0950'
     println(omSymbol)
 
+    "Dragon's Breath".forEach {
+        print("$it \n")
+    }
+
 //    placeOrder("shandy,Dragon's Breath,5.91")
     placeOrder("shandy,Dragon's Breath,5.91")
     placeOrder("elixir,Shirley's Temple,4.12")
