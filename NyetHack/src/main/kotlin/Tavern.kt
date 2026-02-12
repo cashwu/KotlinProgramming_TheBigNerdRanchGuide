@@ -1,27 +1,14 @@
+const val TAVERN_NAME = "Taernyl's Folly"
+
 fun main() {
 
-//    var beverage = readLine()?.capitalize()
-//    var beverage = readLine()?.let {
-//        if (it.isNotBlank()) {
-//            it.capitalize()
-//        } else {
-//            "Buttered Ale"
-//        }
-//    }
+    placeOrder()
+}
 
-//    var beverage = readLine()!!.capitalize()
+fun placeOrder() {
+    val indexOfApostrophe = TAVERN_NAME.indexOf('\'')
 
-    var beverage = readLine()
+    val tavernMaster = TAVERN_NAME.substring(0 until indexOfApostrophe)
 
-    if (beverage != null) {
-        beverage = beverage.capitalize()
-    } else {
-        println("I can't do that without crashing - beverage was null!")
-    }
-
-//    beverage = null
-
-    val beverageServed: String = beverage ?: "Buttered Ale"
-    println(beverageServed)
-//    println(beverage)
+    println("Madrigal speaks with $tavernMaster about their order.")
 }
