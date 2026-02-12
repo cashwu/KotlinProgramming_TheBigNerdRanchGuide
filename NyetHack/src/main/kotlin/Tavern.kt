@@ -31,7 +31,7 @@ fun placeOrder(menuData: String) {
     val message = "Madrigal buys a $name ($type) for $price"
     println(message)
 
-    performPurchase()
+    performPurchase(price)
 
 //    val phrase = "Ah, delicious $name!"
 //    val msg = phrase.replace(Regex("[aeiou]"), { t ->
@@ -66,8 +66,9 @@ fun toDragonSpeak(phrase: String) = phrase.replace(Regex("[aeiou]")) {
     }
 }
 
-fun performPurchase() {
+fun performPurchase(price: Double) {
     displayBalance()
+    println("Purchasing item for $price")
 }
 
 fun displayBalance() {
