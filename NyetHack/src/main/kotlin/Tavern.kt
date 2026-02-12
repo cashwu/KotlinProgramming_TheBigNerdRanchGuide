@@ -69,7 +69,13 @@ fun toDragonSpeak(phrase: String) = phrase.replace(Regex("[aeiou]")) {
 
 fun performPurchase(price: Double) {
     displayBalance()
+
+    val totalPurse = playerGold + (playerSilver / 100.0)
+    println("Total purse: $totalPurse")
     println("Purchasing item for $price")
+
+    val remainingBalance = totalPurse - price
+    println("remainingBalance - $remainingBalance")
 }
 
 fun displayBalance() {
