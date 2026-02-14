@@ -13,6 +13,8 @@ val menuList = File("data/tavern-menu-items.txt")
     .readText()
     .split("\n")
 
+val patronGold = mapOf("Eli" to 10.5, "Mordoc" to 8.0, "Sophie" to 5.5)
+
 fun main() {
 
 //    patronList.forEachIndexed { index, parton ->
@@ -53,6 +55,8 @@ fun main() {
         .distinct()
 
     println(patrons[0])
+
+    println(patronGold)
 }
 
 fun placeOrder(patronName: String, menuData: String) {
