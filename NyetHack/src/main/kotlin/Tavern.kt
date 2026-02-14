@@ -57,6 +57,9 @@ fun main() {
     println(patrons[0])
 
     println(patronGold)
+    println(patronGold["Eli"])
+    println(patronGold["Mordoc"])
+    println(patronGold["Sophie"])
 }
 
 fun placeOrder(patronName: String, menuData: String) {
