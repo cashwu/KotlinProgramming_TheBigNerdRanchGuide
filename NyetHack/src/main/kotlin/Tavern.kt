@@ -4,6 +4,7 @@ const val TAVERN_NAME = "Taernyl's Folly"
 
 var playerGold = 10
 var playerSilver = 10
+var patronList: List<String> = listOf("Eli", "Mordoc", "Sophie")
 
 fun main() {
 
@@ -16,9 +17,9 @@ fun main() {
 
     println(Integer.toBinaryString(42))
 
-//    placeOrder("shandy,Dragon's Breath,5.91")
     placeOrder("shandy,Dragon's Breath,5.91")
-    placeOrder("elixir,Shirley's Temple,4.12")
+
+    println(patronList)
 }
 
 fun placeOrder(menuData: String) {
