@@ -1,5 +1,4 @@
 import java.io.File
-import kotlin.math.roundToInt
 
 const val TAVERN_NAME = "Taernyl's Folly"
 
@@ -52,6 +51,8 @@ fun main() {
         orderCount++
     }
 
+    displayPatronBalances()
+
 //    println(listOf("Eli Baggins", "Eli Baggins", "Eli Ironfoot").toSet())
 //    val patrons = listOf("Eli Baggins", "Eli Baggins", "Eli Ironfoot")
 //        .toSet()
@@ -68,6 +69,7 @@ fun main() {
 //    println(patronGold["Mordoc"])
 //    println(patronGold["Sophie"])
 }
+
 
 fun placeOrder(patronName: String, menuData: String) {
     val indexOfApostrophe = TAVERN_NAME.indexOf('\'')
@@ -86,7 +88,7 @@ fun placeOrder(patronName: String, menuData: String) {
     println(message)
 
     val gold = "5.91".toDoubleOrNull() ?: 0
-//    performPurchase(price.toDouble())
+    performPurchase(price.toDouble(), patronName)
 
 //    val phrase = "Ah, delicious $name!"
 //    val msg = phrase.replace(Regex("[aeiou]"), { t ->
@@ -123,23 +125,34 @@ fun toDragonSpeak(phrase: String) = phrase.replace(Regex("[aeiou]")) {
     }
 }
 
-fun performPurchase(price: Double) {
-    displayBalance()
-
-    val totalPurse = playerGold + (playerSilver / 100.0)
-    println("Total purse: $totalPurse")
-    println("Purchasing item for $price")
-
-    val remainingBalance = totalPurse - price
-    println("remainingBalance - ${"%.2f".format(remainingBalance)}")
-
-    val remainingGold = remainingBalance.toInt()
-    val remainingSilver = (remainingBalance % 1 * 100).roundToInt()
-    playerGold = remainingGold
-    playerSilver = remainingSilver
-    displayBalance()
+fun performPurchase(price: Double, patronName: String) {
+    val totalPurse = patronGold.getValue(patronName)
+    patronGold[patronName] = totalPurse - price
 }
 
-fun displayBalance() {
-    println("Player's purse balance: Gold: $playerGold, Silver $playerSilver")
+fun displayPatronBalances() {
+    patronGold.forEach { (patron, balance) ->
+        println("$patron, balance: ${"%.2f".format(balance)}")
+    }
 }
+
+//fun performPurchase(price: Double) {
+//    displayBalance()
+//
+//    val totalPurse = playerGold + (playerSilver / 100.0)
+//    println("Total purse: $totalPurse")
+//    println("Purchasing item for $price")
+//
+//    val remainingBalance = totalPurse - price
+//    println("remainingBalance - ${"%.2f".format(remainingBalance)}")
+//
+//    val remainingGold = remainingBalance.toInt()
+//    val remainingSilver = (remainingBalance % 1 * 100).roundToInt()
+//    playerGold = remainingGold
+//    playerSilver = remainingSilver
+//    displayBalance()
+//}
+
+//fun displayBalance() {
+//    println("Player's purse balance: Gold: $playerGold, Silver $playerSilver")
+//}
