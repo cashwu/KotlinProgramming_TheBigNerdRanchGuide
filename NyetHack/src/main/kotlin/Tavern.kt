@@ -6,55 +6,32 @@ const val TAVERN_NAME = "Taernyl's Folly"
 var playerGold = 10
 var playerSilver = 10
 var patronList = mutableListOf("Eli", "Mordoc", "Sophie")
+var lastName = listOf("Ironfoot", "Fernsworth", "Baggins")
+val uniquePatrons = mutableSetOf<String>()
+
 val menuList = File("data/tavern-menu-items.txt")
     .readText()
     .split("\n")
 
 fun main() {
 
-//    val omSymbol = '\u0950'
-//    println(omSymbol)
-//
-//    "Dragon's Breath".forEach {
-//        print("$it \n")
+//    patronList.forEachIndexed { index, parton ->
+//        println("good evening, $parton - you're #${index + 1} in line")
+//        placeOrder(parton, menuList.shuffled().first())
+//    }
+//    menuList.forEachIndexed { index, data ->
+//        println("$index : $data")
 //    }
 
-//    println(Integer.toBinaryString(42))
-
-//    placeOrder("shandy,Dragon's Breath,5.91")
-
-//    println(patronList)
-//    patronList.remove("Eli")
-//    patronList.add("Alex")
-//    patronList.add(0, "Alex")
-//    patronList[0] = "Alexis"
-//    println(patronList)
-
-//    for (patron in patronList) {
-//        println("good evening, $patron")
-//    }
-
-//    patronList.forEach { patron ->
-//        println("good evening, $patron")
-//    }
-
-    patronList.forEachIndexed { index, parton ->
-        println("good evening, $parton - you're #${index + 1} in line")
-        placeOrder(parton, menuList.shuffled().first())
-    }
-    menuList.forEachIndexed { index, data ->
-        println("$index : $data")
+    (0..9).forEach { _ ->
+        val first = patronList.shuffled().first()
+        val last = lastName.shuffled().first()
+        val name = "$first $last"
+        uniquePatrons += name
+//        println(name)
     }
 
-    val planets = setOf("Mercury", "Venus", "Earth")
-    println(planets)
-
-    val planets2 = setOf("Mercury", "Venus", "Earth", "Earth")
-    println(planets2)
-
-    println(planets.contains("Earth"))
-    println(planets.contains("Pluto"))
-    println(planets.elementAt(2))
+    println(uniquePatrons)
 }
 
 fun placeOrder(patronName: String, menuData: String) {
