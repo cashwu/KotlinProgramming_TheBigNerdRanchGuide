@@ -4,7 +4,8 @@ const val TAVERN_NAME = "Taernyl's Folly"
 
 var playerGold = 10
 var playerSilver = 10
-var patronList = listOf("Eli", "Mordoc", "Sophie")
+var patronList = mutableListOf("Eli", "Mordoc", "Sophie")
+var readonlyPatronList = patronList.toList()
 
 fun main() {
 
@@ -19,22 +20,12 @@ fun main() {
 
     placeOrder("shandy,Dragon's Breath,5.91")
 
-    println(patronList[0])
-    println(patronList.first())
-    println(patronList.last())
-    println(patronList.getOrElse(4) { "unknow patron" })
-    println(patronList.getOrNull(4) ?: "unknow patron")
-
-    if (patronList.contains("Eli")) {
-        println("the tavern master says: Eli's in the back playing cards.")
-    } else {
-        println("the tavern master says: Eli's isn't here")
-    }
-    if (patronList.containsAll(listOf("Sophie", "Mordoc"))) {
-        println("the tavern master says: Yea, they're seated by the stew kettle.")
-    } else {
-        println("the tavern master says: Nay, they departed hours ago.")
-    }
+    println(patronList)
+    patronList.remove("Eli")
+    patronList.add("Alex")
+    patronList.add(0, "Alex")
+    patronList[0] = "Alexis"
+    println(patronList)
 }
 
 fun placeOrder(menuData: String) {
