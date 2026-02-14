@@ -16,22 +16,37 @@ fun main() {
 //        print("$it \n")
 //    }
 
-    println(Integer.toBinaryString(42))
+//    println(Integer.toBinaryString(42))
 
-    placeOrder("shandy,Dragon's Breath,5.91")
+//    placeOrder("shandy,Dragon's Breath,5.91")
 
-    println(patronList)
-    patronList.remove("Eli")
-    patronList.add("Alex")
-    patronList.add(0, "Alex")
-    patronList[0] = "Alexis"
-    println(patronList)
+//    println(patronList)
+//    patronList.remove("Eli")
+//    patronList.add("Alex")
+//    patronList.add(0, "Alex")
+//    patronList[0] = "Alexis"
+//    println(patronList)
+
+//    for (patron in patronList) {
+//        println("good evening, $patron")
+//    }
+
+//    patronList.forEach { patron ->
+//        println("good evening, $patron")
+//    }
+
+    patronList.forEachIndexed { index, parton ->
+        println("good evening, $parton - you're #${index + 1} in line")
+        placeOrder(parton, "shandy,Dragon's Breath,5.91")
+    }
+
 }
 
-fun placeOrder(menuData: String) {
+fun placeOrder(patronName: String, menuData: String) {
     val indexOfApostrophe = TAVERN_NAME.indexOf('\'')
     val tavernMaster = TAVERN_NAME.substring(0 until indexOfApostrophe)
-    println("Madrigal speaks with $tavernMaster about their order.")
+//    println("Madrigal speaks with $tavernMaster about their order.")
+    println("$patronName speaks with $tavernMaster about their order.")
 
 //    val data = menuData.split(",")
 //    val type = data[0]
@@ -39,11 +54,12 @@ fun placeOrder(menuData: String) {
 //    val price = data[2]
 
     val (type, name, price) = menuData.split(",")
-    val message = "Madrigal buys a $name ($type) for $price"
+//    val message = "Madrigal buys a $name ($type) for $price"
+    val message = "$patronName buys a $name ($type) for $price"
     println(message)
 
     val gold = "5.91".toDoubleOrNull() ?: 0
-    performPurchase(price.toDouble())
+//    performPurchase(price.toDouble())
 
 //    val phrase = "Ah, delicious $name!"
 //    val msg = phrase.replace(Regex("[aeiou]"), { t ->
@@ -59,9 +75,11 @@ fun placeOrder(menuData: String) {
 //    println(msg)
 
     val phrase = if (name == "Dragon's Breath") {
-        "Madrigal exclaims: ${toDragonSpeak("Ah, delicious $name!")}"
+//        "Madrigal exclaims: ${toDragonSpeak("Ah, delicious $name!")}"
+        "$patronName exclaims: ${toDragonSpeak("Ah, delicious $name!")}"
     } else {
-        "Madrigal says: Thanks for the $name."
+//        "Madrigal says: Thanks for the $name."
+        "$patronName says: Thanks for the $name."
     }
 
     println(phrase)
