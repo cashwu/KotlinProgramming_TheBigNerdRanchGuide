@@ -13,7 +13,8 @@ val menuList = File("data/tavern-menu-items.txt")
     .readText()
     .split("\n")
 
-val patronGold = mapOf("Eli" to 10.5, "Mordoc" to 8.0, "Sophie" to 5.5)
+//val patronGold = mapOf("Eli" to 10.5, "Mordoc" to 8.0, "Sophie" to 5.5)
+var patronGold = mutableMapOf<String, Double>()
 
 fun main() {
 
@@ -35,6 +36,12 @@ fun main() {
 
     println(uniquePatrons)
 
+    uniquePatrons.forEach {
+        patronGold[it] = 6.0
+    }
+    println(patronGold)
+
+
     var orderCount = 0
     while (orderCount <= 9) {
         placeOrder(
@@ -45,21 +52,21 @@ fun main() {
         orderCount++
     }
 
-    println(listOf("Eli Baggins", "Eli Baggins", "Eli Ironfoot").toSet())
+//    println(listOf("Eli Baggins", "Eli Baggins", "Eli Ironfoot").toSet())
 //    val patrons = listOf("Eli Baggins", "Eli Baggins", "Eli Ironfoot")
 //        .toSet()
 //        .toList()
 //
 //    println(patrons[0])
-    val patrons = listOf("Eli Baggins", "Eli Baggins", "Eli Ironfoot")
-        .distinct()
+//    val patrons = listOf("Eli Baggins", "Eli Baggins", "Eli Ironfoot")
+//        .distinct()
 
-    println(patrons[0])
+//    println(patrons[0])
 
-    println(patronGold)
-    println(patronGold["Eli"])
-    println(patronGold["Mordoc"])
-    println(patronGold["Sophie"])
+//    println(patronGold)
+//    println(patronGold["Eli"])
+//    println(patronGold["Mordoc"])
+//    println(patronGold["Sophie"])
 }
 
 fun placeOrder(patronName: String, menuData: String) {
