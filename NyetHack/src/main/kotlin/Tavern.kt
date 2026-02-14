@@ -42,6 +42,17 @@ fun main() {
 
         orderCount++
     }
+
+    println(listOf("Eli Baggins", "Eli Baggins", "Eli Ironfoot").toSet())
+//    val patrons = listOf("Eli Baggins", "Eli Baggins", "Eli Ironfoot")
+//        .toSet()
+//        .toList()
+//
+//    println(patrons[0])
+    val patrons = listOf("Eli Baggins", "Eli Baggins", "Eli Ironfoot")
+        .distinct()
+
+    println(patrons[0])
 }
 
 fun placeOrder(patronName: String, menuData: String) {
