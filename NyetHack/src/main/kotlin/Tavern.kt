@@ -46,6 +46,15 @@ fun main() {
         println("$index : $data")
     }
 
+    val planets = setOf("Mercury", "Venus", "Earth")
+    println(planets)
+
+    val planets2 = setOf("Mercury", "Venus", "Earth", "Earth")
+    println(planets2)
+
+    println(planets.contains("Earth"))
+    println(planets.contains("Pluto"))
+    println(planets.elementAt(2))
 }
 
 fun placeOrder(patronName: String, menuData: String) {
