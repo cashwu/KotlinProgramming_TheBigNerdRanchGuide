@@ -13,7 +13,7 @@ fun main() {
     val isImmortal = false
 
     val player = Player()
-    player.name = "estragon"
+//    player.name = "estragon"
     println(player.name + " The Brave")
     player.castFireball()
 
