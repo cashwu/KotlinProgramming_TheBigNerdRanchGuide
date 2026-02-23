@@ -9,16 +9,15 @@ package com.bignerdranch.nyethack
 
 class Player(
     _name: String,
-    var healthPoints: Int,
+    var healthPoints: Int = 100,
     val isBlessed: Boolean,
     private val isImmortal: Boolean
 ) {
 
     constructor(name: String) : this(
         name,
-        100,
-        true,
-        false
+        isBlessed = true,
+        isImmortal = false
     ) {
         if (name.lowercase() == "kar") {
             healthPoints = 40
