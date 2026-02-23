@@ -11,17 +11,21 @@ class Player(
     _name: String,
     val healthPoints: Int,
     val isBlessed: Boolean,
-    private val isImmortal: Boolean) {
+    private val isImmortal: Boolean
+) {
+
+    constructor(name: String) : this(
+        name,
+        100,
+        true,
+        false
+    )
 
     var name = _name
         get() = field.replaceFirstChar { it.uppercase() }
         private set(value) {
             field = value.trim()
         }
-
-//    var healthPoints = _healthPoints
-//    val isBlessed = _isBlessed
-//    private val isImmortal = _isImmortal
 
     fun castFireball(numFireballs: Int = 2) = println("A glass of Fireball springs into existence. (x$numFireballs)")
 
