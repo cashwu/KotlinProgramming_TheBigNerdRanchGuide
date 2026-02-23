@@ -1,5 +1,7 @@
 package com.bignerdranch.nyethack
 
+import java.io.File
+
 /**
  * 
  * @author cash.wu 
@@ -25,10 +27,20 @@ class Player(
     }
 
     var name = _name
-        get() = field.replaceFirstChar { it.uppercase() }
+        get() = "${field.replaceFirstChar { it.uppercase() }} of $hometown"
         private set(value) {
             field = value.trim()
         }
+
+    val hometown = selectHometown()
+
+    private fun selectHometown(): String {
+        return File("data/towns.txt")
+            .readText()
+            .split("\n")
+            .shuffled()
+            .first()
+    }
 
     init {
         require(healthPoints > 0) { "Health points must be greater than zero." }
