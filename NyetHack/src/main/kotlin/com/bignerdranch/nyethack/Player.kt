@@ -30,6 +30,11 @@ class Player(
             field = value.trim()
         }
 
+    init {
+        require(healthPoints > 0) { "Health points must be greater than zero." }
+        require(name.isNotBlank()) { "Player must have a name." }
+    }
+
     fun castFireball(numFireballs: Int = 2) = println("A glass of Fireball springs into existence. (x$numFireballs)")
 
     fun auraColor(): String {
