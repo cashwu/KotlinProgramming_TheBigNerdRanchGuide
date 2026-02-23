@@ -15,6 +15,13 @@ class Player(
     val isBlessed: Boolean,
     private val isImmortal: Boolean
 ) {
+    lateinit var alignment: String
+
+    fun proclaimFate() {
+        if (::alignment.isInitialized) {
+            println(alignment)
+        }
+    }
 
     constructor(name: String) : this(
         name,
