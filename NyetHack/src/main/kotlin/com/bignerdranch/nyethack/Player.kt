@@ -1,4 +1,4 @@
-import kotlin.compareTo
+package com.bignerdranch.nyethack
 
 /**
  * 

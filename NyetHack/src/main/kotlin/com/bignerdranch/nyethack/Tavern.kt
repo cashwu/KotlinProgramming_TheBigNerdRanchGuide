@@ -1,3 +1,5 @@
+package com.bignerdranch.nyethack
+
 import java.io.File
 
 const val TAVERN_NAME = "Taernyl's Folly"
@@ -12,16 +14,16 @@ val menuList = File("data/tavern-menu-items.txt")
     .readText()
     .split("\n")
 
-//val patronGold = mapOf("Eli" to 10.5, "Mordoc" to 8.0, "Sophie" to 5.5)
+//val com.bignerdranch.nyethack.patronGold = mapOf("Eli" to 10.5, "Mordoc" to 8.0, "Sophie" to 5.5)
 var patronGold = mutableMapOf<String, Double>()
 
 fun main() {
 
-//    patronList.forEachIndexed { index, parton ->
+//    com.bignerdranch.nyethack.patronList.forEachIndexed { index, parton ->
 //        println("good evening, $parton - you're #${index + 1} in line")
-//        placeOrder(parton, menuList.shuffled().first())
+//        com.bignerdranch.nyethack.placeOrder(parton, com.bignerdranch.nyethack.menuList.shuffled().first())
 //    }
-//    menuList.forEachIndexed { index, data ->
+//    com.bignerdranch.nyethack.menuList.forEachIndexed { index, data ->
 //        println("$index : $data")
 //    }
 
@@ -64,10 +66,10 @@ fun main() {
 
 //    println(patrons[0])
 
-//    println(patronGold)
-//    println(patronGold["Eli"])
-//    println(patronGold["Mordoc"])
-//    println(patronGold["Sophie"])
+//    println(com.bignerdranch.nyethack.patronGold)
+//    println(com.bignerdranch.nyethack.patronGold["Eli"])
+//    println(com.bignerdranch.nyethack.patronGold["Mordoc"])
+//    println(com.bignerdranch.nyethack.patronGold["Sophie"])
 }
 
 
@@ -104,7 +106,7 @@ fun placeOrder(patronName: String, menuData: String) {
 //    println(msg)
 
     val phrase = if (name == "Dragon's Breath") {
-//        "Madrigal exclaims: ${toDragonSpeak("Ah, delicious $name!")}"
+//        "Madrigal exclaims: ${com.bignerdranch.nyethack.toDragonSpeak("Ah, delicious $name!")}"
         "$patronName exclaims: ${toDragonSpeak("Ah, delicious $name!")}"
     } else {
 //        "Madrigal says: Thanks for the $name."
@@ -136,10 +138,10 @@ fun displayPatronBalances() {
     }
 }
 
-//fun performPurchase(price: Double) {
+//fun com.bignerdranch.nyethack.performPurchase(price: Double) {
 //    displayBalance()
 //
-//    val totalPurse = playerGold + (playerSilver / 100.0)
+//    val totalPurse = com.bignerdranch.nyethack.playerGold + (com.bignerdranch.nyethack.playerSilver / 100.0)
 //    println("Total purse: $totalPurse")
 //    println("Purchasing item for $price")
 //
@@ -148,11 +150,11 @@ fun displayPatronBalances() {
 //
 //    val remainingGold = remainingBalance.toInt()
 //    val remainingSilver = (remainingBalance % 1 * 100).roundToInt()
-//    playerGold = remainingGold
-//    playerSilver = remainingSilver
+//    com.bignerdranch.nyethack.playerGold = remainingGold
+//    com.bignerdranch.nyethack.playerSilver = remainingSilver
 //    displayBalance()
 //}
 
 //fun displayBalance() {
-//    println("Player's purse balance: Gold: $playerGold, Silver $playerSilver")
+//    println("com.bignerdranch.nyethack.Player's purse balance: Gold: $com.bignerdranch.nyethack.playerGold, Silver $com.bignerdranch.nyethack.playerSilver")
 //}
