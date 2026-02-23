@@ -6,7 +6,24 @@ package com.bignerdranch.nyethack
  * @since 2026/02/23 
  * 
  */
+
+class Weapon(val name: String)
+
 class Player {
+
+    var weapon: Weapon? = Weapon("Ebony Kris")
+
+    fun printWeaponName() {
+
+        weapon?.also {
+            println(it.name)
+        }
+
+//        if (weapon != null) {
+//            println(weapon.name)
+//        }
+    }
+
 
     var name = "madrigal"
         get() = field.replaceFirstChar { it.uppercase() }
