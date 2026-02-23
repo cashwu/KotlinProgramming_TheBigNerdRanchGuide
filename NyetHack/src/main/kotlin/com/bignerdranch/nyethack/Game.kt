@@ -7,9 +7,8 @@ package com.bignerdranch.nyethack
  * 
  */
 
-val player = Player()
 fun main() {
-    val player = Player()
+    val player = Player("Madrigal", 89, _isBlessed = true, _isImmortal = false)
     player.castFireball()
 
     // aura

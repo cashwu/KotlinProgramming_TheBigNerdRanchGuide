@@ -7,32 +7,20 @@ package com.bignerdranch.nyethack
  * 
  */
 
-class Weapon(val name: String)
+class Player(_name: String,
+    _healthPoints: Int,
+    _isBlessed: Boolean,
+    _isImmortal: Boolean) {
 
-class Player {
-
-    var weapon: Weapon? = Weapon("Ebony Kris")
-
-    fun printWeaponName() {
-
-        weapon?.also {
-            println(it.name)
-        }
-
-//        if (weapon != null) {
-//            println(weapon.name)
-//        }
-    }
-
-
-    var name = "madrigal"
+    var name = _name
         get() = field.replaceFirstChar { it.uppercase() }
         private set(value) {
             field = value.trim()
         }
-    var healthPoints = 89
-    val isBlessed = true
-    private val isImmortal = false
+
+    var healthPoints = _healthPoints
+    val isBlessed = _isBlessed
+    private val isImmortal = _isImmortal
 
     fun castFireball(numFireballs: Int = 2) = println("A glass of Fireball springs into existence. (x$numFireballs)")
 
