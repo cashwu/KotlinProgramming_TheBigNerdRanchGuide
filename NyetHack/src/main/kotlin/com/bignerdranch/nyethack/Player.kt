@@ -9,7 +9,7 @@ package com.bignerdranch.nyethack
 
 class Player(
     _name: String,
-    val healthPoints: Int,
+    var healthPoints: Int,
     val isBlessed: Boolean,
     private val isImmortal: Boolean
 ) {
@@ -19,7 +19,11 @@ class Player(
         100,
         true,
         false
-    )
+    ) {
+        if (name.lowercase() == "kar") {
+            healthPoints = 40
+        }
+    }
 
     var name = _name
         get() = field.replaceFirstChar { it.uppercase() }
