@@ -39,7 +39,7 @@ class Player(
             field = value.trim()
         }
 
-    val hometown = selectHometown()
+    val hometown by lazy { selectHometown() }
 
     private fun selectHometown(): String {
         return File("data/towns.txt")
