@@ -10,13 +10,13 @@ open class Room(val name: String) {
     open fun load() = "Nothing much to see here"
 }
 
-class TownSquare : Room("Town Square") {
+open class TownSquare : Room("Town Square") {
 
     override val dangerLevel = super.dangerLevel - 3
 
     private var bellSound = "GWONG"
 
-    final override fun load(): String {
+    override fun load(): String {
         return "The villagers rally and cheer as you enter ! \n" +
                 ringBell()
     }

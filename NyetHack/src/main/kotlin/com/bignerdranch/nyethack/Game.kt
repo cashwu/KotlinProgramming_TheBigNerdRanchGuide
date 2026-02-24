@@ -1,5 +1,7 @@
 package com.bignerdranch.nyethack
 
+import java.io.File
+
 /**
  * 
  * @author cash.wu 
@@ -9,6 +11,22 @@ package com.bignerdranch.nyethack
 
 fun main() {
     Game.play()
+
+    val abandonedTownSquare = object : TownSquare() {
+        override fun load(): String {
+            return "you anticipate applause, but no one is here..."
+        }
+    }
+
+    PremadeWorldMap.load()
+}
+
+class PremadeWorldMap {
+
+    companion object {
+        private const val MAPS_FILEPATH = "nyethack.maps"
+        fun load() = File(MAPS_FILEPATH).readBytes()
+    }
 }
 
 object Game {
