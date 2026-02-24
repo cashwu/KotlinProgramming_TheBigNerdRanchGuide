@@ -41,6 +41,8 @@ class Player(
 
     val hometown by lazy { selectHometown() }
 
+    var currentPosition = Coordinate(0, 0)
+
     private fun selectHometown(): String {
         return File("data/towns.txt")
             .readText()
@@ -52,6 +54,11 @@ class Player(
     init {
         require(healthPoints > 0) { "Health points must be greater than zero." }
         require(name.isNotBlank()) { "Player must have a name." }
+
+        val (x, y) = Coordinate(0, 0)
+
+        println(currentPosition.toString())
+        println(currentPosition == Coordinate(0, 0))
     }
 
     fun castFireball(numFireballs: Int = 2) = println("A glass of Fireball springs into existence. (x$numFireballs)")
