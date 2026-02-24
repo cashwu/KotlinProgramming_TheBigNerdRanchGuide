@@ -4,8 +4,11 @@ open class Room(val name: String) {
 
     protected open val dangerLevel = 5
 
+    var monster : Monster? = Goblin()
+
     fun description() = "Room: $name \n" +
-            "Danger level: $dangerLevel"
+            "Danger level: $dangerLevel " +
+            "Creature: ${monster?.description ?: "none "}"
 
     open fun load() = "Nothing much to see here"
 }
@@ -13,6 +16,8 @@ open class Room(val name: String) {
 open class TownSquare : Room("Town Square") {
 
     override val dangerLevel = super.dangerLevel - 3
+
+
 
     private var bellSound = "GWONG"
 

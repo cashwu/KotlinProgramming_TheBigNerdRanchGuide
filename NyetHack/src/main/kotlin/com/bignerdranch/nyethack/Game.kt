@@ -1,6 +1,8 @@
 package com.bignerdranch.nyethack
 
 import java.io.File
+import kotlin.jvm.Throws
+import kotlin.system.exitProcess
 
 /**
  * 
@@ -72,6 +74,7 @@ object Game {
         val arguments = input.split(" ").getOrElse(1) { "" }
 
         fun processCommand() = when (command.lowercase()) {
+            "fight" -> fight()
             "move" -> move(arguments)
             else -> commandNotFound()
         }
@@ -94,6 +97,33 @@ object Game {
             return "OK, you move $direction to the ${newRoom.name}.\n${newRoom.load()}"
         } catch (e: Exception) {
             return "Invalid direction: $directionInput."
+        }
+    }
+
+    private fun fight(): String {
+        return currentRoom.monster?.let {
+
+            while (player.healthPoints > 0 && it.healthPoints > 0) {
+                slay(it)
+                Thread.sleep(1000)
+            }
+
+            return "Combat complete."
+
+        }  ?: "There's nothing here to fight"
+    }
+
+    private fun slay(monster: Monster) {
+        println("${monster.name} did ${monster.attack(player)} damage! ")
+        println("${player.name} did ${player.attack(monster)} damage! ")
+
+        if (player.healthPoints<=0) {
+            println(">>> you have been defeated ! Thanks for playing. <<<")
+            exitProcess(0)
+        }
+        if (monster.healthPoints<=0) {
+            println(">>> ${monster.name} has been defeated !. <<<")
+            currentRoom.monster = null
         }
     }
 }
