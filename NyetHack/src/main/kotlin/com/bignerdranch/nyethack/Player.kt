@@ -12,11 +12,11 @@ import java.io.File
 class Player(
     _name: String,
     override var healthPoints: Int = 100,
-    val isBlessed: Boolean,
+    val isBlessed: Boolean = false,
     private val isImmortal: Boolean,
     override val diceCount: Int = 3,
     override val diceSides: Int = 6,
-    override val damageRoll: Int
+    override val damageRoll: Int = 6
 ) : Fightable {
     lateinit var alignment: String
 

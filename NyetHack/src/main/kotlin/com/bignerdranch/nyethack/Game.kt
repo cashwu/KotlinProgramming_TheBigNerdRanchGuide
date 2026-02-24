@@ -30,7 +30,7 @@ class PremadeWorldMap {
 }
 
 object Game {
-    private val player = Player("Madrigal")
+    private val player = Player("Madrigal", isImmortal = false)
     private var currentRoom: Room = TownSquare()
 
     private var worldMap = listOf(
