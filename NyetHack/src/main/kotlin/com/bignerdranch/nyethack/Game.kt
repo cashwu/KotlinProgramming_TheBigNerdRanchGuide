@@ -12,13 +12,13 @@ import java.io.File
 fun main() {
     Game.play()
 
-    val abandonedTownSquare = object : TownSquare() {
-        override fun load(): String {
-            return "you anticipate applause, but no one is here..."
-        }
-    }
+//    val abandonedTownSquare = object : TownSquare() {
+//        override fun load(): String {
+//            return "you anticipate applause, but no one is here..."
+//        }
+//    }
 
-    PremadeWorldMap.load()
+//    PremadeWorldMap.load()
 }
 
 class PremadeWorldMap {
@@ -47,7 +47,7 @@ object Game {
             printPlayerStatus(player)
 
             println("> Enter your command: ")
-            println("Last command: ${readLine()}")
+            println(GameInput(readLine()).processCommand())
         }
     }
 
@@ -59,5 +59,17 @@ object Game {
                     "(Blessed: ${if (player.isBlessed) "YES" else "NO"})"
         )
         println("${player.name} ${player.formatHealthStatus()}")
+    }
+
+    private class GameInput(args: String?) {
+        private val input = args ?: ""
+        val command = input.split(" ")[0]
+        val arguments = input.split(" ").getOrElse(1) { "" }
+
+        fun processCommand() = when (command.lowercase()) {
+            else -> commandNotFound()
+        }
+
+        private fun commandNotFound() = "I'm not quite sure what you're trying to do."
     }
 }
