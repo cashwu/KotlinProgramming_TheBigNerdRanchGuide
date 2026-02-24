@@ -11,10 +11,13 @@ import java.io.File
 
 class Player(
     _name: String,
-    var healthPoints: Int = 100,
+    override var healthPoints: Int = 100,
     val isBlessed: Boolean,
-    private val isImmortal: Boolean
-) {
+    private val isImmortal: Boolean,
+    override val diceCount: Int = 3,
+    override val diceSides: Int = 6,
+    override val damageRoll: Int
+) : Fightable {
     lateinit var alignment: String
 
     fun proclaimFate() {
@@ -23,15 +26,15 @@ class Player(
         }
     }
 
-    constructor(name: String) : this(
-        name,
-        isBlessed = true,
-        isImmortal = false
-    ) {
-        if (name.lowercase() == "kar") {
-            healthPoints = 40
-        }
-    }
+//    constructor(name: String) : this(
+//        name,
+//        isBlessed = true,
+//        isImmortal = false
+//    ) {
+//        if (name.lowercase() == "kar") {
+//            healthPoints = 40
+//        }
+//    }
 
     var name = _name
         get() = "${field.replaceFirstChar { it.uppercase() }} of $hometown"
@@ -80,5 +83,17 @@ class Player(
 
         in 15..74 -> "has a few scratches."
         else -> "is in awful condition!"
+    }
+
+    override fun attack(opponent: Fightable): Int {
+
+        val damageDealt = if (isBlessed) {
+            damageRoll * 2
+        } else {
+            damageRoll
+        }
+
+        opponent.healthPoints -= damageDealt
+        return damageDealt
     }
 }
