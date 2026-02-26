@@ -1,6 +1,7 @@
 package com.bignerdranch.nyethack
 
 import java.io.File
+import com.bignerdranch.nyethack.extensions.random as randomizer
 
 /**
  * 
@@ -50,7 +51,7 @@ class Player(
         return File("data/towns.txt")
             .readText()
             .split("\n")
-            .random()
+            .randomizer()
     }
 
     init {
