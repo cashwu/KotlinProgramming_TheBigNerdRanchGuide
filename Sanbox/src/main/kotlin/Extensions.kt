@@ -10,6 +10,9 @@ fun <T> T.easyPrint(): T {
     return this
 }
 
+val String.numVowels
+    get() = count { "aeiou".contains(it) }
+
 fun main() {
     "Madrigal has left the building"
         .easyPrint()
@@ -17,4 +20,6 @@ fun main() {
         .easyPrint()
 
     42.easyPrint()
+
+    "How manay vowels".numVowels.easyPrint()
 }
