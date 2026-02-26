@@ -13,6 +13,8 @@ fun <T> T.easyPrint(): T {
 val String.numVowels
     get() = count { "aeiou".contains(it) }
 
+infix fun String?.printWithDefault(default: String) = print(this ?: default)
+
 fun main() {
     "Madrigal has left the building"
         .easyPrint()
@@ -22,4 +24,7 @@ fun main() {
     42.easyPrint()
 
     "How manay vowels".numVowels.easyPrint()
+
+    val nullableString: String? = null
+    nullableString printWithDefault "Default string"
 }
