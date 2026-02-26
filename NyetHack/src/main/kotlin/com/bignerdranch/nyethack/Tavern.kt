@@ -17,7 +17,6 @@ val menuList = File("data/tavern-menu-items.txt")
 //val com.bignerdranch.nyethack.patronGold = mapOf("Eli" to 10.5, "Mordoc" to 8.0, "Sophie" to 5.5)
 var patronGold = mutableMapOf<String, Double>()
 
-private fun <T> Iterable<T>.random(): T = this.shuffled().first()
 
 fun main() {
 

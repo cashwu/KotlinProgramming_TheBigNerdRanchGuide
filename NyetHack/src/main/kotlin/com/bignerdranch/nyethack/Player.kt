@@ -50,8 +50,7 @@ class Player(
         return File("data/towns.txt")
             .readText()
             .split("\n")
-            .shuffled()
-            .first()
+            .random()
     }
 
     init {
